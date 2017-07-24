@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.parthdave.mapofflinedemo"
+        minSdkVersion 18
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/LICENSE'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+
+    compile "com.google.android.gms:play-services-maps:10.2.6"
+
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'org.mapsforge:mapsforge-core:0.8.0'
+    compile 'org.mapsforge:mapsforge-map:0.8.0'
+    compile 'org.mapsforge:mapsforge-poi:0.8.0'
+    compile 'org.mapsforge:mapsforge-poi-android:0.8.0'
+    compile 'org.mapsforge:spatialite-android:0.8.0'
+    compile 'org.mapsforge:spatialite-android:0.8.0:natives-armeabi'
+    compile 'org.mapsforge:spatialite-android:0.8.0:natives-armeabi-v7a'
+    compile 'org.mapsforge:spatialite-android:0.8.0:natives-x86'
+    compile 'org.mapsforge:mapsforge-map-reader:0.8.0'
+    compile 'org.mapsforge:mapsforge-map-android:0.8.0'
+    compile 'org.mapsforge:mapsforge-themes:0.8.0'
+    compile(group: 'com.graphhopper', name: 'graphhopper-core', version: '0.10-SNAPSHOT') {
+        exclude group: 'com.google.protobuf', module: 'protobuf-java'
+        exclude group: 'org.openstreetmap.osmosis', module: 'osmosis-osm-binary'
+        exclude group: 'org.apache.xmlgraphics', module: 'xmlgraphics-commons'
+    }
+    compile 'net.sf.kxml:kxml2:2.3.0'
+    compile 'com.caverock:androidsvg:1.2.2-beta-1'
+    compile('org.mapsforge:mapsforge-map-android-extras:0.8.0') {
+        transitive = false
+    }
+    compile 'org.slf4j:slf4j-api:1.7.25'
+    compile 'org.slf4j:slf4j-android:1.7.25'
+}

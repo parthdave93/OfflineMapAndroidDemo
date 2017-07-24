@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MapOfflineDemo</string>
+    <string name="maps_api_key">AIzaSyC1FJK-u6g2cLcjeWJBDuwKTTPF2cTpgGE</string>
+</resources>
